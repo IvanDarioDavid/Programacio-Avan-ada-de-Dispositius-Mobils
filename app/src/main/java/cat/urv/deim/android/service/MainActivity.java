@@ -66,8 +66,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //BroadcastReceiver: permite ver el progreso de la aplicacion y la terminacio
-    //                     captura los mensajes broadcast que el servicio envia durante su ejecucion
-
-
 }
