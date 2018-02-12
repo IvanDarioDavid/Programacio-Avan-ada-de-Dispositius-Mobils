@@ -9,8 +9,8 @@
     <RelativeLayout
         android:layout_width="379dp"
         android:layout_height="496dp"
-        tools:layout_editor_absoluteX="-8dp"
-        tools:layout_editor_absoluteY="4dp">
+        tools:layout_editor_absoluteX="-11dp"
+        tools:layout_editor_absoluteY="7dp">
 
         <EditText
             android:id="@+id/info_text"

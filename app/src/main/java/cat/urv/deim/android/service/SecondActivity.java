@@ -13,9 +13,6 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-/**
- * Created by HP on 04/10/2017.
- */
 
 public class SecondActivity extends AppCompatActivity{
 

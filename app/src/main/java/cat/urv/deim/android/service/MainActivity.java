@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent_send_service = new Intent();
-                intent_send_service.setClass(getApplicationContext(),SecondActivity.class);
+                intent_send_service.setClass(getApplicationContext(), SecondActivity.class);
                 intent_send_service.putExtra("InitialValue",((EditText)findViewById(R.id.info_text)).getText().toString());
                 startActivity(intent_send_service);
             }
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent_send_service = new Intent(MainActivity.this, MyIntentService.class);
                 intent_send_service.putExtra(  "operacion",( (EditText)findViewById(R.id.info_text) ).getText().toString()  );
-                intent_send_service.putExtra(  MyIntentService.KEY_ACTION, KEY_START);//clave:KEY_ACTION   valor:KEY_START
+                intent_send_service.putExtra(  MyIntentService.KEY_ACTION, KEY_START);//clave:KEY_ACTION   valor:KEY_START. ID, ID_START
                 startService(intent_send_service);
                 Intent secondActivityIntent = new Intent(getApplicationContext(), SecondActivity.class);
                 startActivity(secondActivityIntent);

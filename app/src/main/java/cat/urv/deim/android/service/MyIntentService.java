@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class MyIntentService extends IntentService {
 
-    public static final String KEY_ACTION = "KEY_ACTION";
+    public static final String KEY_ACTION = "KEY_ACTION";//ID
     public static final String KEY_STOP = "KEY_STOP";
 
     public static final String TAG = "initService";
@@ -40,14 +40,14 @@ public class MyIntentService extends IntentService {
 
                 sendBroadcast(intent);//se envia a todas las aplicaciones del movil
                 if (!stopService)
-                    handler.postDelayed(runnable, 1000); //postDelayed: añade el hilo en una cola. Se ejecutaa a los 5 segundos
+                    handler.postDelayed(runnable, 20000); //postDelayed: añade el hilo en una cola. Se ejecutaa a los 5 segundos
             }
         };
     }
 
     @Override//se ejecuta con el stratService
     protected void onHandleIntent(Intent intent) { //metodo que contiene la tarea a ejecutar en segundo plano
-                                                    //recibe el intent de cada solicitud de inicio para que se pueda realizar el trabajo en segundo plano
+                                                   // recibe el intent de cada solicitud de inicio para que se pueda realizar el trabajo en segundo plano
 
         if (intent.getExtras().getString(MyIntentService.KEY_ACTION).equals(MainActivity.KEY_START)) {
 
@@ -65,8 +65,6 @@ public class MyIntentService extends IntentService {
         } else if (intent.getExtras().getString(MyIntentService.KEY_ACTION).equals(KEY_STOP)) { //esto pasa desde la secondActivity: Para parar el service
             stopService=true;
         }
-
-
 
     }
 

@@ -10,21 +10,11 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * Created by HP on 18/10/2017.
- */
-
-//Definicion dinamica. La diferencia es que aqui se define cuando se va a usar mientras que en la estatica se usa siempre
-//Definir el uso de un BroadcastReciver registrado
-//No Se debe hacer el registro en el manifest dinamicamente, sino que cuando se arranque la activity tiene que hacerse el registro
-//Cuando pare la activity tiene que desenregistrarse
-
-
 public class ThirdActivity extends AppCompatActivity {
 
         BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
             @Override
-            public void onReceive(Context context, Intent intent) {
+            public void onReceive(Context context, Intent intent) {//onReceive(): se considera un proceso en segundo plano
                 String resultado = intent.getExtras().getString(MyIntentService.KEY_RESULTADO);
                 if (text != null) {
                     text.setText(resultado);
@@ -37,7 +27,6 @@ public class ThirdActivity extends AppCompatActivity {
             }
         };
 
-    //private Button send_button;
     private static TextView text;
     protected static final String TAG = SecondActivity.class.getSimpleName();
 
@@ -52,4 +41,32 @@ public class ThirdActivity extends AppCompatActivity {
         registerReceiver(broadcastReceiver, new IntentFilter("AppService")); //El recibidor puede recibir broadcasts de diferentes Apps.
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        unregisterReceiver(broadcastReceiver);
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Definicion dinamica. La diferencia es que aqui se define cuando se va a usar mientras que en la estatica se usa siempre
+//Definir el uso de un BroadcastReciver registrado
+//No Se debe hacer el registro en el manifest dinamicamente, sino que cuando se arranque la activity tiene que hacerse el registro
+//Cuando pare la activity tiene que desenregistrarse
